@@ -1,11 +1,11 @@
-class DirectorsController < ApplicationController
+class ActorsController < ApplicationController
 
   def index
-    @list_of_directors = Director.all
+    @list_of_actors = Actor.all
   end
 
   def show
-  @director = Director.find_by({:id => params[:id]})
+  @actor = Actor.find_by({:id => params[:id]})
 
   end
 
@@ -14,36 +14,36 @@ class DirectorsController < ApplicationController
   end
 
   def create_row
-    p = Director.new
+    p = Actor.new
     p.dob        = params[:the_dob]
     p.name       = params[:the_name]
     p.bio        = params[:the_bio]
     p.image_url  = params[:the_image_url]
     p.save
 
-    redirect_to("http://localhost:3000/directors")
+    redirect_to("http://localhost:3000/actors")
   end
 
   def destroy
-    p = Director.find_by({:id => params[:id]})
+    p = Actor.find_by({:id => params[:id]})
     p.destroy
 
-    redirect_to("http://localhost:3000/directors")
+    redirect_to("http://localhost:3000/actors")
   end
 
   def edit_form
-    @director = Director.find_by({:id => params[:id]})
+    @actor = Actor.find_by({:id => params[:id]})
   end
 
   def update_row
-    p = Director.find_by({:id => params[:id]})
+    p = Actor.find_by({:id => params[:id]})
     p.dob        = params[:the_dob]
     p.name       = params[:the_name]
     p.bio        = params[:the_bio]
     p.image_url  = params[:the_image_url]
     p.save
 
-    redirect_to("http://localhost:3000/directors")
+    redirect_to("http://localhost:3000/actors")
   end
 
 
